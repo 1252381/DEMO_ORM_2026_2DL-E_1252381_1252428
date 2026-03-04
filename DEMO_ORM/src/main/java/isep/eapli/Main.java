@@ -1,17 +1,27 @@
 package isep.eapli;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+import isep.eapli.demo_orm.domain.cargroup.CarGroup;
+import isep.eapli.demo_orm.domain.cargroup.CarGroupRepository;
+import isep.eapli.demo_orm.domain.cargroup.CarGroupRepositoryJPAImpl;
+
+
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        // 1. Create the repository
+        CarGroupRepository repo = new CarGroupRepositoryJPAImpl();
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
+        // 2. Create a new CarGroup object (using the constructor we fixed earlier!)
+        CarGroup myCarGroup = new CarGroup("Luxury SUV", 5, "Class A");
+
+        // 3. Save it to the database
+        System.out.println("Saving CarGroup to the database...");
+        repo.add(myCarGroup);
+        System.out.println("Successfully saved!");
+
+        // 4. Retrieve it to prove it's there
+        System.out.println("Fetching all CarGroups from database:");
+        for (CarGroup cg : repo.findAll()) {
+            System.out.println("- Found: " + cg);
         }
     }
 }

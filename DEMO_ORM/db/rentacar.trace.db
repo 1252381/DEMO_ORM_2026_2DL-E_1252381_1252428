@@ -1,0 +1,7 @@
+2026-03-04 17:16:54.451234Z jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "CARGROUP" not found (this database is empty); SQL statement:
+SELECT 1 FROM CARGROUP [42104-240]
+2026-03-04 17:16:54.472774Z jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabela "SEQUENCE" nie istnieje
+Table "SEQUENCE" not found; SQL statement:
+SELECT 1 FROM SEQUENCE [42102-240]
