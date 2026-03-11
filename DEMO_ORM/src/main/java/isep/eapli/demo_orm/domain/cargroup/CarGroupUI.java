@@ -9,21 +9,32 @@ import isep.eapli.demo_orm.util.Console;
 public class CarGroupUI {
 
     private final CarGroupController controller = new CarGroupController();
-    
-    public void registerCG() {
-        System.out.println("*** Registo Grupo Automóvel ***\n");
-        String nome = Console.readLine("Nome:");
-        int portas = Console.readInteger("Número de portas");
-        String classe = Console.readLine("Classe:");
-        CarGroup carGroup = controller.
-                registerCarGroup(nome, portas, classe);
-        System.out.println("Grupo Automóvel" + carGroup);
-    }
-    public void listGAs() {
-		throw new UnsupportedOperationException("Ainda não implementada.");
-	}
 
-	public void searchGAPorID(long id) {
-		throw new UnsupportedOperationException("Ainda não implementada.");
-	}
+    public void registerCG() {
+        System.out.println("*** Register Car Group ***\n");
+        String name = Console.readLine("Name:");
+        int doors = Console.readInteger("Number of doors:");
+        String classification = Console.readLine("Class:");
+        CarGroup carGroup = controller.
+                registerCarGroup(name, doors, classification);
+        System.out.println("Car Group: " + carGroup);
+    }
+
+    public void listGAs() {
+        System.out.println("*** List of Car Groups ***");
+        for (CarGroup cg : controller.listCarGroups()) {
+            System.out.println(cg.toString());
+        }
+    }
+
+    public void searchGAPorID() {
+        System.out.println("*** Search for Car Group ***");
+        long id = (long) Console.readInteger("Give ID: ");
+        CarGroup cg = controller.searchCarGroup(id);
+        if (cg != null) {
+            System.out.println(cg.toString());
+        } else {
+            System.out.println("No car group found with that ID.");
+        }
+    }
 }

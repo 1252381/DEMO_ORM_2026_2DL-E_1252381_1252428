@@ -22,6 +22,12 @@ public class CarGroup {
         this.classification = classification;
     }
 
+    @Override
+    public String toString() {
+        return String.format("ID: %d | Name: %s | Doors: %d | Class: %s",
+                id, name, doorNumber, classification);
+    }
+
     public Long getId() {
         return id;
     }

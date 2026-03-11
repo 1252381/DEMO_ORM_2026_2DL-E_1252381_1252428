@@ -29,4 +29,10 @@ public class Car {
         this.engineDispl = engineDispl;
         this.carGroup = carGroup;
     }
+
+    @Override
+    public String toString() {
+        return String.format("id:%d |Plate: %s | Color: %s | yearOfManufacture: %d | yearOfAcquisition: %d | engine: %s | car group: %s",
+                id, licensePlate, color, yearOfManufacture, yearOfAcquisition, engineDispl, carGroup.getName());
+    }
 }

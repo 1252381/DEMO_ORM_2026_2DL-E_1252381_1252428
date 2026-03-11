@@ -3,10 +3,13 @@ package isep.eapli;
 import isep.eapli.demo_orm.domain.cargroup.CarGroup;
 import isep.eapli.demo_orm.domain.cargroup.CarGroupRepository;
 import isep.eapli.demo_orm.domain.cargroup.CarGroupRepositoryJPAImpl;
+import isep.eapli.demo_orm.presentation.MainMenu;
 
 
 public class Main {
     public static void main(String[] args) {
+        MainMenu.mainLoop();
+        /*
         // 1. Create the repository
         CarGroupRepository repo = new CarGroupRepositoryJPAImpl();
 
@@ -23,5 +26,6 @@ public class Main {
         for (CarGroup cg : repo.findAll()) {
             System.out.println("- Found: " + cg);
         }
+         */
     }
 }

@@ -7,31 +7,31 @@ public class CarUI {
     private final CarController controller = new CarController();
 
     public void registerCar() {
-        String plate = Console.readLine("Matrícula:");
-        int yM = Console.readInteger("Ano Fabrico:");
-        int yA = Console.readInteger("Ano Aquisição:");
-        String color = Console.readLine("Cor:");
-        String engine = Console.readLine("Cilindrada:");
+        String plate = Console.readLine("License Plate:");
+        int yM = Console.readInteger("Manufacture Year:");
+        int yA = Console.readInteger("Acquisition Year:");
+        String color = Console.readLine("Color:");
+        String engine = Console.readLine("Engine Capacity:");
 
-        System.out.println("Grupos disponíveis:");
+        System.out.println("Available Groups:");
         for (CarGroup cg : controller.getAvailableGroups()) {
             System.out.println(cg.getId() + " - " + cg.getName());
         }
-        Long groupId = (long) Console.readInteger("ID do Grupo:");
+        Long groupId = (long) Console.readInteger("Group ID:");
 
         Car car = controller.registerCar(plate, yM, yA, color, engine, groupId);
-        System.out.println("Carro registado: " + car);
+        System.out.println("Car registered: " + car);
     }
 
     public void listCars() {
         for (Car c : controller.listCars()) {
-            System.out.println(c);
+            System.out.println(c.toString());
         }
     }
 
     public void searchCar() {
-        Long id = (long) Console.readInteger("ID do Carro:");
+        Long id = (long) Console.readInteger("Give ID:");
         Car c = controller.searchCar(id);
-        System.out.println(c != null ? c : "Não encontrado.");
+        System.out.println(c != null ? c.toString() : "No car with that ID.");
     }
 }
